@@ -85,7 +85,7 @@ Repositorio: https://github.com/LeoVD29S/Practica-CI-CD
 
 - **Exitosa (Prueba A):** https://github.com/LeoVD29S/Practica-CI-CD/actions/runs/38979423622
 - **Fallida controlada (Prueba B):** https://github.com/LeoVD29S/Practica-CI-CD/actions/runs/38979923659 (aserción `assertStatus(404)`)
-- **Exitosa tras corrección:** _se actualiza con el enlace de la ejecución posterior a restaurar `assertSuccessful()`_
+- **Exitosa tras corrección:** https://github.com/LeoVD29S/Practica-CI-CD/actions/runs/38980196231
 
 ### Cómo interpretar los resultados
 
