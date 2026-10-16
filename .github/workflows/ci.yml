@@ -29,7 +29,7 @@ jobs:
         run: composer validate
 
       - name: Instalar dependencias
-        run: composer update --prefer-dist --no-interaction --no-progress
+        run: composer update --prefer-dist --no-interaction --no-progress --with-all-dependencies
 
       - name: Preparar entorno Laravel
         run: |
