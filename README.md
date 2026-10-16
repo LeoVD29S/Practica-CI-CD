@@ -83,9 +83,9 @@ Repositorio: https://github.com/LeoVD29S/Practica-CI-CD
 
 ### Ejecuciones de GitHub Actions
 
-- **Exitosa (Prueba A):** _actualizar con el enlace de Actions_
-- **Fallida controlada (Prueba B):** _actualizar con el enlace de Actions_ (aserción `assertStatus(404)`)
-- **Exitosa tras corrección:** _actualizar con el enlace de Actions_
+- **Exitosa (Prueba A):** https://github.com/LeoVD29S/Practica-CI-CD/actions/runs/38979423622
+- **Fallida controlada (Prueba B):** https://github.com/LeoVD29S/Practica-CI-CD/actions/runs/38979923659 (aserción `assertStatus(404)`)
+- **Exitosa tras corrección:** _se actualiza con el enlace de la ejecución posterior a restaurar `assertSuccessful()`_
 
 ### Cómo interpretar los resultados
 
