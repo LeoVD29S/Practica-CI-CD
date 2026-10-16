@@ -6,8 +6,8 @@ Automatizar la instalación de dependencias y la ejecución de pruebas de la apl
 
 ## Tecnologías
 
-- PHP 8.2
-- Laravel 11
+- PHP 8.3
+- Laravel 13
 - Composer
 - PHPUnit
 - Git y GitHub
@@ -15,7 +15,7 @@ Automatizar la instalación de dependencias y la ejecución de pruebas de la apl
 
 ## Requisitos
 
-- PHP 8.2 o superior (compatible con el proyecto)
+- PHP 8.3 o superior (compatible con el proyecto)
 - Composer
 - Git
 - Acceso al repositorio de GitHub
@@ -31,6 +31,7 @@ Automatizar la instalación de dependencias y la ejecución de pruebas de la apl
    ```bash
    composer install
    ```
+   (Si no existe `composer.lock`, usar `composer update`.)
 3. Copiar el entorno de ejemplo:
    ```bash
    cp .env.example .env
@@ -56,8 +57,8 @@ El workflow `.github/workflows/ci.yml` se ejecuta automáticamente al hacer *pus
 ### Pasos del pipeline
 
 1. Checkout del código
-2. Configuración de PHP 8.2 y extensiones (`mbstring`, `pdo_sqlite`, `sqlite3`, `bcmath`, `fileinfo`)
-3. Validación de `composer.json` / `composer.lock`
+2. Configuración de PHP 8.3 y extensiones (`mbstring`, `pdo_sqlite`, `sqlite3`, `bcmath`, `fileinfo`)
+3. Validación de `composer.json`
 4. Instalación de dependencias con Composer
 5. Preparación del entorno Laravel (`.env` + `key:generate`)
 6. Ejecución de pruebas con `php artisan test` (SQLite en memoria)
@@ -68,7 +69,6 @@ El workflow `.github/workflows/ci.yml` se ejecuta automáticamente al hacer *pus
 |--------|---------|--------------|
 | `test_home_page_is_accessible` | `tests/Feature/HomePageTest.php` | Que la ruta `/` responda con éxito (HTTP 2xx) |
 | `test_the_application_returns_a_successful_response` | `tests/Feature/ExampleTest.php` | Que `/` responda con HTTP 200 |
-| `test_that_true_is_true` | `tests/Unit/ExampleTest.php` | Prueba unitaria básica |
 
 Las pruebas de feature usan SQLite en memoria (`DB_CONNECTION=sqlite`, `DB_DATABASE=:memory:`), configurado en `phpunit.xml` y también en el workflow.
 
@@ -83,11 +83,9 @@ Repositorio: https://github.com/LeoVD29S/Practica-CI-CD
 
 ### Ejecuciones de GitHub Actions
 
-Documentar aquí los enlaces reales después de cada ejecución:
-
-- **Exitosa (Prueba A):** _pegar enlace a la run en Actions_
-- **Fallida controlada (Prueba B):** _pegar enlace a la run en Actions_ (aserción `assertStatus(404)`)
-- **Exitosa tras corrección:** _pegar enlace a la run en Actions_ (aserción restaurada)
+- **Exitosa (Prueba A):** _actualizar con el enlace de Actions_
+- **Fallida controlada (Prueba B):** _actualizar con el enlace de Actions_ (aserción `assertStatus(404)`)
+- **Exitosa tras corrección:** _actualizar con el enlace de Actions_
 
 ### Cómo interpretar los resultados
 
@@ -98,13 +96,7 @@ Documentar aquí los enlaces reales después de cada ejecución:
 
 ## Conclusiones
 
-La integración continua permite detectar errores de forma automática en cada cambio enviado al repositorio, sin depender de que alguien ejecute las pruebas a mano. Al provocar un fallo controlado (asesión incorrecta) y luego restaurarlo, se demuestra que el pipeline no solo se ejecuta, sino que también comunica correctamente el estado de las pruebas.
-
-Errores típicos que el pipeline ayuda a detectar:
-
-- Dependencias rotas o `composer.json` inválido
-- Código que rompe la página principal
-- Configuración incompleta del entorno de pruebas
+La integración continua detecta errores de forma automática en cada cambio enviado al repositorio. Al provocar un fallo controlado (aserción incorrecta) y luego restaurarlo, se demuestra que el pipeline no solo se ejecuta, sino que también comunica correctamente el estado de las pruebas.
 
 ## Autor
 

@@ -12,7 +12,7 @@ permissions:
 jobs:
   laravel-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Obtener codigo
@@ -21,12 +21,12 @@ jobs:
       - name: Configurar PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.3'
           extensions: mbstring, pdo_sqlite, sqlite3, bcmath, fileinfo
           coverage: none
 
       - name: Validar Composer
-        run: composer validate
+        run: composer validate --no-check-publish
 
       - name: Instalar dependencias
         run: composer update --prefer-dist --no-interaction --no-progress --with-all-dependencies
